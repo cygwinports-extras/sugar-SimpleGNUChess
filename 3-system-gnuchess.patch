@@ -1,0 +1,25 @@
+--- origsrc/SimpleGNUChess-3/chess.py	2012-07-31 00:28:53.000000000 -0500
++++ src/SimpleGNUChess-3/chess.py	2012-08-05 02:35:52.117688800 -0500
+@@ -64,7 +64,6 @@ class Gnuchess():
+                  colors=['#A0FFA0', '#FF8080']):
+         self._activity = parent
+         self._bundle_path = path
+-        self._bin_path = 'bin/i686'
+         self._colors = ['#FFFFFF']
+         self._colors.append(colors[0])
+         self._colors.append(colors[1])
+@@ -119,13 +118,11 @@ class Gnuchess():
+                              stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE,
+                              stderr=subprocess.STDOUT)
+-        self._bin_path = 'bin/%s' % (BIN[p.communicate()[0].replace('\n', '')])
+         self._all_clear()
+ 
+     def move(self, my_move):
+         ''' Send a command to gnuchess. '''
+-        p = subprocess.Popen(['%s/%s/gnuchess' % (self._bundle_path,
+-                                                   self._bin_path)],
++        p = subprocess.Popen(['gnuchess'],
+                              stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE,
+                              stderr=subprocess.STDOUT)

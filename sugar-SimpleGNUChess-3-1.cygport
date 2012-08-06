@@ -1,0 +1,9 @@
+inherit sugar
+
+# directory name does not match tarball name
+SRC_URI="http://download.sugarlabs.org/sources/honey/Gnuchess/SimpleGNUChess-3.tar.bz2"
+PATCH_URI="3-system-gnuchess.patch"
+
+REQUIRES="gnuchess"
+
+DISTCLEANFILES="bin/*/*"
